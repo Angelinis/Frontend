@@ -26,8 +26,6 @@ export const Home = () => {
     });
   }, [])
   
-
-
   useEffect(() => {
     if (filtered) {
       const filteredNotes = notes.filter((note) => note.archived === true);
