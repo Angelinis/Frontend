@@ -40,11 +40,15 @@ with the necessary dependencies to run and test this app:
 
     npm install
 
-Also run the next script in the terminal for running:
+Also run the next script in the terminal for running the webpage:
 
     npm run dev
 
-    npm install-and-start
+There is an easier way to do both commands at the same time. If you would like to run the webpage from the beginning and install all the dependencies, you can run the next command:
+
+    npm run install-and-start
+
+Choose the best command for you!
 
 ## Credits
 
