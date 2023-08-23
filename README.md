@@ -4,14 +4,13 @@
 
 “Note app” is an application similar to Microsoft sticky notes. The user can create a new note, edit a published note, archived a completed note, unarchived a note and fitler the notes.
 
-It is a project based on React + Vite language and it used the concepts of APIs,
-authentication, authorization, associations, validations, seeds, etc.
+It is a project based on React + Vite language and it used the concepts of DOM, fetch, styled components, Modal.
 
-![homepage](https://raw.githubusercontent.com/Angelinis/tweetable-app/main/app/assets/images/Tweetable_app_1.JPG)
+![homepage](https://raw.githubusercontent.com/Angelinis/Frontend/blob/main/src/assets/Mynotes_1.JPG)
 
-![details1](https://raw.githubusercontent.com/Angelinis/tweetable-app/main/app/assets/images/Tweetable_app_2.JPG)
+![details1](https://raw.githubusercontent.com/Angelinis/Frontend/blob/main/src/assets/Mynotes_2.JPG)
 
-![details2](https://raw.githubusercontent.com/Angelinis/tweetable-app/main/app/assets/images/Tweetable_app_3.JPG)
+![details2](https://raw.githubusercontent.com/Angelinis/Frontend/blob/main/src/assets/Mynotes_3.JPG)
 
 ## React + Vite
 
@@ -28,11 +27,11 @@ Currently, two official plugins are available:
 
 This is the list of libraries installed during the development:
 
-- @emotion/styled
-- @emotion/react
-- react-icons
-- formik
-- react-router-dom
+- @emotion/styled: For creating components with style and css
+- @emotion/react: For creating components with style and css
+- react-icons: For obtaining icons without the need of downloading
+- formik: For making easier the creation of forms
+- react-router-dom: For the creation of routes in the webpage
 
 ## Getting Started
 
@@ -41,16 +40,10 @@ with the necessary dependencies to run and test this app:
 
     npm install
 
-Also make sure that you have a postgresql server running:
+Also run the next script in the terminal for running:
 
     npm run dev
 
 ## Credits
 
 Designed by Ensolvers
-
-Additional gems:
-
-- @emotion/styled
-- @emotion/react
--
