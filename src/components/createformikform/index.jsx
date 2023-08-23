@@ -2,6 +2,32 @@ import React from 'react';
 import { Formik } from 'formik';
 import { createNote } from '../../utils/extraFetchFunctions';
 import { StyledHeader1 } from '../styledheader';
+import styled from '@emotion/styled';
+import { css } from '@emotion/react';
+import { StyledButton } from '../styledbutton';
+
+const StyledLabel = styled.label`
+color: #333333;
+font-family: Arial;
+font-size: 1.2 rem;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+text-align: center;
+margin-top: 1.375rem;
+margin-bottom: 1.375rem;
+margin-right: 1.375rem;
+`;
+
+const StyledContainerInput = styled.div`
+display: flex;
+margin-bottom: 1.375rem;
+margin-right: auto;
+margin-left:auto;
+width: 400px;
+justify-content: space-around;
+`
+
 
 
 const CreateFormikForm = ({user_id, onRefresh, refreshValue}) => (
@@ -72,7 +98,9 @@ const CreateFormikForm = ({user_id, onRefresh, refreshValue}) => (
 
         <form onSubmit={handleSubmit}>
 
-          <label htmlFor="title">Title</label>
+          < StyledContainerInput>
+
+          <StyledLabel htmlFor="title">Title</StyledLabel>
 
           <input
 
@@ -80,7 +108,7 @@ const CreateFormikForm = ({user_id, onRefresh, refreshValue}) => (
 
             name="title"
 
-            placeholder="title"
+            placeholder="Title"
 
             onChange={handleChange}
 
@@ -90,9 +118,13 @@ const CreateFormikForm = ({user_id, onRefresh, refreshValue}) => (
 
           />
 
+          </ StyledContainerInput>
+
           {errors.title && touched.title&& errors.title}
 
-          <label htmlFor="content">Title</label>
+          < StyledContainerInput>
+
+          <StyledLabel htmlFor="content">Content</StyledLabel>
 
 
           <input
@@ -101,7 +133,7 @@ const CreateFormikForm = ({user_id, onRefresh, refreshValue}) => (
 
             name="content"
 
-            placeholder="content"
+            placeholder="Content"
 
             onChange={handleChange}
 
@@ -110,14 +142,15 @@ const CreateFormikForm = ({user_id, onRefresh, refreshValue}) => (
             value={values.content}
 
           />
+          </ StyledContainerInput>
 
           {errors.content && touched.content && errors.content}
 
-          <button type="submit" disabled={isSubmitting}>
+          <StyledButton type="submit" disabled={isSubmitting}>
 
             Create
 
-          </button>
+          </StyledButton>
 
         </form>
 

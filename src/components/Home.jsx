@@ -9,7 +9,7 @@ import CreateFormikForm from "./createformikform";
 import { StyledParagraph } from "./styledparagraph";
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
-import { Button } from "./styledbutton";
+import { StyledButton } from "./styledbutton";
 
 import { FaFilter, FaStickyNote } from 'react-icons/fa';
 
@@ -76,9 +76,9 @@ export const Home = () => {
     <>
     <StyledHeader1>My notes</StyledHeader1>
     <StyledParagraph key={user.id}>Welcome <HighlightedUsername>{user.username}</HighlightedUsername>!</StyledParagraph>
-    <Button onClick={()=>{setArchived(!archived)}}>Archived notes<FaFilter/></Button>
-    <Button onClick={()=>{setUnarchived(!unarchived)}}>Unarchived notes<FaFilter/></Button>
-    <Button onClick={()=>{createNote(noteBody, handleRefresh, refresh)}}>Create Note<FaStickyNote/></Button>
+    <StyledButton onClick={()=>{setArchived(!archived)}}>Archived notes<FaFilter/></StyledButton>
+    <StyledButton onClick={()=>{setUnarchived(!unarchived)}}>Unarchived notes<FaFilter/></StyledButton>
+    <StyledButton onClick={()=>{createNote(noteBody, handleRefresh, refresh)}}>Create Note<FaStickyNote/></StyledButton>
     <CreateFormikForm user_id={user.id} onRefresh={handleRefresh} refreshValue={refresh} ></CreateFormikForm>
 
      {filterNotes.map((note) => 
