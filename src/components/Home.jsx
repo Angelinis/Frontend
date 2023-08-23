@@ -4,6 +4,8 @@ import { easyFetch } from "../utils/store";
 import { IndividualNote } from "./individualnote";
 import { createNote, deleteFunction } from "../utils/extraFetchFunctions";
 import { fetchOptions } from "../utils/fetchOptions";
+import EditFormikForm from "./editformikform";
+import CreateFormikForm from "./createformikform";
 
 
 
@@ -28,6 +30,9 @@ export const Home = () => {
   useEffect(() => {
     const options = fetchOptions.getOption;
     easyFetch("notes", options).then((data) => {
+      data = data.sort(function(a, b) {
+        return a.id - b.id;
+    });
       setNotes(data);
       setFilterNotes(data);
     });
@@ -64,15 +69,18 @@ export const Home = () => {
     <p onClick={()=>{setArchived(!archived)}}>Archived Notes</p>
     <p onClick={()=>{setUnarchived(!unarchived)}}>Unarchived Notes</p>
     <p onClick={()=>{createNote(noteBody, handleRefresh, refresh)}}>Create Notes</p>
-
+    <CreateFormikForm user_id={user.id} onRefresh={handleRefresh} refreshValue={refresh} ></CreateFormikForm>
 
     <StyledHeader1>My notes</StyledHeader1>
     <p key={user.id}>Welcome {user.username}</p>
      {filterNotes.map((note) => 
      (
+      <>
+      <EditFormikForm note_id={note.id} onRefresh={handleRefresh} refreshValue={refresh}></EditFormikForm>
       <IndividualNote key={note.id} uniqueKey={note.id} title={note.title} content={note.content} updated_at={note.updated_at}
-      deleteFunction={deleteFunction} refreshFunction={handleRefresh} refreshValue={refresh}
+      deleteFunction={deleteFunction} refreshFunction={handleRefresh} refreshValue={refresh} archived={note.archived}
       ></IndividualNote>
+      </>
      )
       )}
       
