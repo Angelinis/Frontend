@@ -10,7 +10,7 @@ import { StyledParagraph } from "./styledparagraph";
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
 import { StyledButton } from "./styledbutton";
-
+import Modal from "./Modal";
 import { FaFilter, FaStickyNote } from 'react-icons/fa';
 
 
@@ -19,6 +19,8 @@ const HighlightedUsername = styled.span`
 `;
 
 export const Home = () => {
+  const [isOpen, setIsOpen] = useState(true);
+
   const [refresh, setRefresh] = useState(false);
   const [notes, setNotes] = useState([]);
   const [user, setUser] = useState("");
@@ -74,6 +76,7 @@ export const Home = () => {
 
   return(
     <>
+    <Modal open={isOpen} handleOpen={setIsOpen}/>
     <StyledHeader1>My notes</StyledHeader1>
     <StyledParagraph key={user.id}>Welcome <HighlightedUsername>{user.username}</HighlightedUsername>!</StyledParagraph>
     <StyledButton onClick={()=>{setArchived(!archived)}}>Archived notes<FaFilter/></StyledButton>

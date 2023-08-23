@@ -132,7 +132,7 @@ const EditFormikForm = ({note_id, onRefresh, refreshValue}) => (
 
             name="title"
 
-            placeholder="title"
+            placeholder="New title"
 
             onChange={handleChange}
 
@@ -162,7 +162,7 @@ const EditFormikForm = ({note_id, onRefresh, refreshValue}) => (
 
             name="content"
 
-            placeholder="content"
+            placeholder="New content"
 
             onChange={handleChange}
 
