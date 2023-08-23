@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 export const StyledHeader1 = styled.h1`
 color: #333333;
 font-family: Arial;
-font-size: 1.375rem;
+font-size: 1.5rem;
 font-style: normal;
 font-weight: 600;
 line-height: normal;

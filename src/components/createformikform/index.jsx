@@ -1,12 +1,14 @@
 import React from 'react';
 import { Formik } from 'formik';
 import { createNote } from '../../utils/extraFetchFunctions';
+import { StyledHeader1 } from '../styledheader';
+
 
 const CreateFormikForm = ({user_id, onRefresh, refreshValue}) => (
 
   <div>
 
-    <h1>Create new note!</h1>
+    <StyledHeader1>Create note</StyledHeader1>
 
     <Formik
 
@@ -70,6 +72,8 @@ const CreateFormikForm = ({user_id, onRefresh, refreshValue}) => (
 
         <form onSubmit={handleSubmit}>
 
+          <label htmlFor="title">Title</label>
+
           <input
 
             type="text"
@@ -87,6 +91,9 @@ const CreateFormikForm = ({user_id, onRefresh, refreshValue}) => (
           />
 
           {errors.title && touched.title&& errors.title}
+
+          <label htmlFor="content">Title</label>
+
 
           <input
 

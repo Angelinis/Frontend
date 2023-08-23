@@ -6,8 +6,17 @@ import { createNote, deleteFunction } from "../utils/extraFetchFunctions";
 import { fetchOptions } from "../utils/fetchOptions";
 import EditFormikForm from "./editformikform";
 import CreateFormikForm from "./createformikform";
+import { StyledParagraph } from "./styledparagraph";
+import styled from "@emotion/styled";
+import { css } from "@emotion/react";
+import { Button } from "./styledbutton";
+
+import { FaFilter, FaStickyNote } from 'react-icons/fa';
 
 
+const HighlightedUsername = styled.span`
+  color: #FF69B4;
+`;
 
 export const Home = () => {
   const [refresh, setRefresh] = useState(false);
@@ -36,7 +45,6 @@ export const Home = () => {
       setNotes(data);
       setFilterNotes(data);
     });
-    console.log("here!!")
   }, [refresh])
 
   useEffect(() => {
@@ -66,13 +74,13 @@ export const Home = () => {
 
   return(
     <>
-    <p onClick={()=>{setArchived(!archived)}}>Archived Notes</p>
-    <p onClick={()=>{setUnarchived(!unarchived)}}>Unarchived Notes</p>
-    <p onClick={()=>{createNote(noteBody, handleRefresh, refresh)}}>Create Notes</p>
+    <StyledHeader1>My notes</StyledHeader1>
+    <StyledParagraph key={user.id}>Welcome <HighlightedUsername>{user.username}</HighlightedUsername>!</StyledParagraph>
+    <Button onClick={()=>{setArchived(!archived)}}>Archived notes<FaFilter/></Button>
+    <Button onClick={()=>{setUnarchived(!unarchived)}}>Unarchived notes<FaFilter/></Button>
+    <Button onClick={()=>{createNote(noteBody, handleRefresh, refresh)}}>Create Note<FaStickyNote/></Button>
     <CreateFormikForm user_id={user.id} onRefresh={handleRefresh} refreshValue={refresh} ></CreateFormikForm>
 
-    <StyledHeader1>My notes</StyledHeader1>
-    <p key={user.id}>Welcome {user.username}</p>
      {filterNotes.map((note) => 
      (
       <>
