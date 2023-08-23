@@ -19,7 +19,7 @@ const HighlightedUsername = styled.span`
 `;
 
 export const Home = () => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   const [refresh, setRefresh] = useState(false);
   const [notes, setNotes] = useState([]);
@@ -76,13 +76,12 @@ export const Home = () => {
 
   return(
     <>
-    <Modal open={isOpen} handleOpen={setIsOpen}/>
+    <Modal open={isOpen} handleOpen={setIsOpen} user_id={user.id} onRefresh={handleRefresh} refreshValue={refresh}/>
     <StyledHeader1>My notes</StyledHeader1>
     <StyledParagraph key={user.id}>Welcome <HighlightedUsername>{user.username}</HighlightedUsername>!</StyledParagraph>
     <StyledButton onClick={()=>{setArchived(!archived)}}>Archived notes<FaFilter/></StyledButton>
     <StyledButton onClick={()=>{setUnarchived(!unarchived)}}>Unarchived notes<FaFilter/></StyledButton>
-    <StyledButton onClick={()=>{createNote(noteBody, handleRefresh, refresh)}}>Create Note<FaStickyNote/></StyledButton>
-    <CreateFormikForm user_id={user.id} onRefresh={handleRefresh} refreshValue={refresh} ></CreateFormikForm>
+    <StyledButton onClick={()=>{setIsOpen(true)}}>Create Note<FaStickyNote/></StyledButton>
 
      {filterNotes.map((note) => 
      (
