@@ -4,10 +4,11 @@ import { StyledButton } from "./styledbutton";
 import CreateFormikForm from './createformikform';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
+import EditFormikForm from './editformikform';
 
 const MODAL_STYLES = {
-  width: "600px",
-  height: "500px",
+  width: "550px",
+  height: "450px",
   position: "fixed",
   top: "50%",
   left: "50%",
@@ -39,8 +40,7 @@ justify-content: center;
 
 const modalRoot = document.getElementById("modal-root");
 
-export default function Modal({open, id, children, handleOpen, handleAction, 
-  onProductChange, user_id, onRefresh, refreshValue
+export function ModalCreate({open, handleOpen, user_id, onRefresh, refreshValue
 }){
   if (!open) return null;
   return( 
@@ -51,6 +51,9 @@ export default function Modal({open, id, children, handleOpen, handleAction,
     <CreateFormikForm user_id={user_id} onRefresh={onRefresh} refreshValue={refreshValue} handleOpen={handleOpen}
     open={open}
     ></CreateFormikForm>
+    
+
+    
     <StyledDiv>
     <StyledButton onClick={() => handleOpen(!open)}>No, cancel!</StyledButton>
     </StyledDiv>
@@ -60,3 +63,26 @@ export default function Modal({open, id, children, handleOpen, handleAction,
   )
   )
 }
+
+export function ModalEdit({open, handleOpen, onRefresh, refreshValue, note_id}){
+  if (!open) return null;
+  return( 
+    ReactDOM.createPortal(
+      <>
+  <div style={OVERLAY_STYLES}>
+  <div style={MODAL_STYLES}>
+  <EditFormikForm note_id={note_id} onRefresh={onRefresh} refreshValue={refreshValue} handleOpen={handleOpen}
+    open={open}></EditFormikForm>
+    
+
+    
+    <StyledDiv>
+    <StyledButton onClick={() => handleOpen(!open)}>No, cancel!</StyledButton>
+    </StyledDiv>
+  </div>
+  </div>
+  </>, modalRoot 
+  )
+  )
+}
+

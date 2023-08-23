@@ -23,7 +23,7 @@ border-radius: 5px;
 `
 
 export function IndividualNote({uniqueKey, title, content, archived, updated_at, 
-  deleteFunction, refreshFunction, refreshValue}){
+  deleteFunction, refreshFunction, refreshValue, handleOpenEdit, handleNoteId}){
   const handleDelete = async () => {
     await deleteFunction(uniqueKey);
     setTimeout(() => {
@@ -35,6 +35,11 @@ export function IndividualNote({uniqueKey, title, content, archived, updated_at,
     archived: !archived
   }
   
+  const handleEditModal = () => {
+    handleOpenEdit(true);
+    handleNoteId(uniqueKey);
+  };
+
   const handleArchived = async () => {
     await editNote(body, refreshFunction, uniqueKey, refreshValue );
   };
@@ -49,7 +54,7 @@ export function IndividualNote({uniqueKey, title, content, archived, updated_at,
       </FaTrashAlt>
       {archived ? <FaUpload style={{ cursor: "pointer" }} onClick={handleArchived}></FaUpload> : 
        <FaArchive style={{ cursor: "pointer" }} onClick={handleArchived}/>}
-      <FaEdit style={{ cursor: "pointer" }}></FaEdit>
+      <FaEdit style={{ cursor: "pointer" } } onClick={handleEditModal}></FaEdit>
       </StyledFlexbox>
     </StyledDiv>
     
