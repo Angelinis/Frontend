@@ -17,7 +17,7 @@ const headers = {
   'Content-Type': 'application/json'
 }
 
-export function createNote(body, refresh){
+export function createNote(body, refresh, refreshValue){
   const config = {
      method: "POST" ,
      headers,
@@ -31,10 +31,9 @@ export function createNote(body, refresh){
   });
 
   console.log("Succesfully created note");
-  console.log(config);
 
   setTimeout(() => {
-      refresh(true);
-  }, 500); 
+      refresh(!refreshValue);
+  }, 200); 
 }
 

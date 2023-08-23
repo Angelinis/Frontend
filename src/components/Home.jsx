@@ -18,7 +18,7 @@ export const Home = () => {
   const noteBody = {
     title: "Random Note",
     content: "Testing creation of note",
-    user: user
+    user_id: user.id
   }
 
   function handleRefresh(value){
@@ -31,6 +31,7 @@ export const Home = () => {
       setNotes(data);
       setFilterNotes(data);
     });
+    console.log("here!!")
   }, [refresh])
 
   useEffect(() => {
@@ -62,7 +63,7 @@ export const Home = () => {
     <>
     <p onClick={()=>{setArchived(!archived)}}>Archived Notes</p>
     <p onClick={()=>{setUnarchived(!unarchived)}}>Unarchived Notes</p>
-    <p onClick={()=>{createNote(noteBody, handleRefresh)}}>Create Notes</p>
+    <p onClick={()=>{createNote(noteBody, handleRefresh, refresh)}}>Create Notes</p>
 
 
     <StyledHeader1>My notes</StyledHeader1>
@@ -70,7 +71,7 @@ export const Home = () => {
      {filterNotes.map((note) => 
      (
       <IndividualNote key={note.id} uniqueKey={note.id} title={note.title} content={note.content} updated_at={note.updated_at}
-      deleteFunction={deleteFunction} refreshFunction={handleRefresh}
+      deleteFunction={deleteFunction} refreshFunction={handleRefresh} refreshValue={refresh}
       ></IndividualNote>
      )
       )}
