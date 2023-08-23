@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 
 export const StyledButton = styled.button`
   margin: 4px 4px 4px 4px;
+  margin-top: 1.5rem;
   padding: 4px 4px 4px 4px;
   color: #333333;
   background: #FFFFFF;

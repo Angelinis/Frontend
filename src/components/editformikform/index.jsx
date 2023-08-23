@@ -2,12 +2,55 @@ import React from 'react';
 import { Formik } from 'formik';
 import { editNote } from '../../utils/extraFetchFunctions';
 import { StyledHeader1 } from '../styledheader';
+import { css } from '@emotion/react';
+import styled from '@emotion/styled';
+import { StyledButton } from '../styledbutton';
 
 
+const HighlightedError = styled.span`
+  color: #FF69B4;
+  margin-top:0px;
+  line-height: 0.8rem;
+  font-size: 0.8rem
+`;
+
+const StyledLabel = styled.label`
+color: #333333;
+font-family: Arial;
+font-size: 1.2 rem;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+text-align: center;
+margin-top: 1.375rem;
+margin-bottom: 1.375rem;
+margin-right: 1.375rem;
+`;
+
+const StyledContainerInput = styled.div`
+display: flex;
+margin-top: 1.375rem;
+margin-right: auto;
+margin-left:auto;
+width: 400px;
+justify-content: space-around;
+`
+const StyledContainerForm = styled.div`
+background-color: #efefed;
+border: solid 1px;
+width: 500px;
+margin-top: 1.20rem;
+margin-bottom: 1.375rem;
+margin-left:auto;
+margin-right:auto;
+padding-top: 0.5rem;
+padding-bottom: 0.5rem;
+border-radius: 5px;
+`
 
 const EditFormikForm = ({note_id, onRefresh, refreshValue}) => (
 
-  <div>
+  <StyledContainerForm >
 
     <StyledHeader1>Edit note</StyledHeader1>
 
@@ -21,7 +64,13 @@ const EditFormikForm = ({note_id, onRefresh, refreshValue}) => (
 
         if (!values.title) {
 
-          errors.title = 'Required';
+          errors.title = 'New title is mandatory';
+
+        } 
+
+        if (!values.content) {
+
+          errors.content = 'New content is mandatory';
 
         } 
 
@@ -72,7 +121,10 @@ const EditFormikForm = ({note_id, onRefresh, refreshValue}) => (
 
         <form onSubmit={handleSubmit}>
 
-          <label htmlFor="title">Title</label>
+        <div>
+        < StyledContainerInput>
+
+          <StyledLabel htmlFor="title">Title</StyledLabel>
 
           <input
 
@@ -90,9 +142,19 @@ const EditFormikForm = ({note_id, onRefresh, refreshValue}) => (
 
           />
 
+        </ StyledContainerInput>
+
+        <HighlightedError>
+
           {errors.title && touched.title&& errors.title}
 
-          <label htmlFor="content">Content</label>
+        </HighlightedError>
+        </div>
+
+        <div>
+        < StyledContainerInput>
+
+          <StyledLabel htmlFor="content">Content</StyledLabel>
 
           <input
 
@@ -110,13 +172,20 @@ const EditFormikForm = ({note_id, onRefresh, refreshValue}) => (
 
           />
 
-          {errors.content && touched.content && errors.content}
+        </StyledContainerInput>
 
-          <button type="submit" disabled={isSubmitting}>
+        <HighlightedError>
+
+          {errors.content && touched.content && errors.content}
+        </HighlightedError>
+
+        </div>
+
+          <StyledButton type="submit" disabled={isSubmitting}>
 
             Edit
 
-          </button>
+          </StyledButton>
 
         </form>
 
@@ -124,7 +193,7 @@ const EditFormikForm = ({note_id, onRefresh, refreshValue}) => (
 
     </Formik>
 
-  </div>
+  </StyledContainerForm >
 
 );
 
