@@ -44,6 +44,8 @@ Also run the next script in the terminal for running:
 
     npm run dev
 
+    npm install-and-start
+
 ## Credits
 
 Designed by Ensolvers
