@@ -6,11 +6,11 @@
 
 It is a project based on React + Vite language and it used the concepts of DOM, fetch, styled components, Modal.
 
-![homepage](https://raw.githubusercontent.com/Angelinis/Frontend/blob/main/src/assets/Mynotes_1.JPG)
+![homepage](https://github.com/Angelinis/Frontend/blob/main/src/assets/Mynotes_1.JPG?raw=yes)
 
-![details1](https://raw.githubusercontent.com/Angelinis/Frontend/blob/main/src/assets/Mynotes_2.JPG)
+![details1](https://github.com/Angelinis/Frontend/blob/main/src/assets/Mynotes_2.JPG?raw=yes)
 
-![details2](https://raw.githubusercontent.com/Angelinis/Frontend/blob/main/src/assets/Mynotes_3.JPG)
+![details2](https://github.com/Angelinis/Frontend/blob/main/src/assets/Mynotes_3.JPG?raw=yes)
 
 ## React + Vite
 
