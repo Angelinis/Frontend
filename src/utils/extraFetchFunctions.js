@@ -17,26 +17,21 @@ const headers = {
   'Content-Type': 'application/json'
 }
 
-export function createNote(body, refresh, refreshValue){
+export async function createNote(body, refresh, refreshValue) {
   const config = {
-     method: "POST" ,
-     headers,
-     body: JSON.stringify(body)
+    method: "POST",
+    headers,
+    body: JSON.stringify(body)
+  };
+
+  try {
+    const response = await easyFetch(`notes`, config);
+    console.log("Successfully created note:", response);
+    refresh(!refreshValue);
+  } catch (error) {
+    console.error('Error:', error);
   }
-
-  easyFetch(`notes`, config)
-    .then((response) => {response})
-    .catch((error) => {
-      console.error('Error:', error);
-  });
-
-  console.log("Succesfully created note");
-
-  setTimeout(() => {
-      refresh(!refreshValue);
-  }, 200); 
 }
-
 
 export function editNote(body, refresh, id, refreshValue){
   const config = {

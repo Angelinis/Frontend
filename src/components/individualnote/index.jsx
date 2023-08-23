@@ -28,7 +28,7 @@ export function IndividualNote({uniqueKey, title, content, archived, updated_at,
     await deleteFunction(uniqueKey);
     setTimeout(() => {
       refreshFunction(!refreshValue);
-    }, 200); 
+    }, 400); 
   };
 
   const body = {

@@ -91,12 +91,10 @@ export const Home = () => {
 
      {filterNotes.map((note) => 
      (
-      <>
       <IndividualNote key={note.id} uniqueKey={note.id} title={note.title} content={note.content} updated_at={note.updated_at}
       deleteFunction={deleteFunction} refreshFunction={handleRefresh} refreshValue={refresh} archived={note.archived}
       handleOpenEdit={handleOpenEdit} handleNoteId={handleNoteEdit}
       ></IndividualNote>
-      </>
      )
       )}
       
