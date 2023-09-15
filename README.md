@@ -59,6 +59,4 @@ The BASEURI can be changed depending on the user. If the user wants to run the b
 
 Later, change the VITE_DOMAIN to your preference (locally or through another API)
 
-## Credits
 
-Designed by Ensolvers
